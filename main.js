@@ -47,7 +47,7 @@ function updateTime()
         {
             hourVar = "0"+hour;
         }
-        theTime = hourVar+minVar+":"+secVar
+        theTime = hourVar+""+minVar+":"+secVar
     }
 
     document.getElementById("date").innerHTML = theDate;
