@@ -3,11 +3,15 @@
     <header>
         <title>Kardzer Clock</title>
         <link rel="stylesheet" href="style.css">
-        <h1>Clock</h1>
     </header>
     <div>
-        <text id="date"></text><br>
-        <text id="time"></text><sub id="second"></sub>
+
+
+        <u><text id="date" style="font-size: 200%;"></text></u><br>
+        <text id="time" style="font-size: 400%;"></text><sub id="second"></sub><br>
+        <input id="hourT" value="0"><input id="minuteT" value="0"><input id="secondT" value="0"><br>
+        <button onclick="setTimer()">Add</button><br>
+        <text id="percent"></text>
     </div>
     <footer>
         <input id="checker" type="checkbox">
