@@ -1,3 +1,12 @@
+let end = Date.now() + 0;
+let timeGiven = 0;
+function setTimer()
+{
+    timeGiven = (parseInt(document.getElementById("hourT").value) * 3600000) + (parseInt(document.getElementById("minuteT").value) * 60000) + (parseInt(document.getElementById("secondT").value) * 1000);
+    end = Date.now() + timeGiven;
+    document.getElementById("time").style.color = "black";
+}
+
 function updateTime()
 {
     const date = new Date();
@@ -12,7 +21,7 @@ function updateTime()
     let minVar = minute;
     let hourVar = hour;
     let hourType = "AM";
-
+    
     theDate = month+"/"+day+"/"+year;
 
     if(seconds<=9)
@@ -52,6 +61,16 @@ function updateTime()
 
     document.getElementById("date").innerHTML = theDate;
     document.getElementById("time").innerHTML = theTime;
+
+    document.getElementById("percent").innerHTML = Math.round((timeGiven - (end - Date.now())) / timeGiven * 10000) / 100 + "%";
+    if(Math.round((timeGiven - (end - Date.now())) / timeGiven * 10000) / 100 >= 90)
+    {
+        document.getElementById("time").style.color = "blue";
+    }
+    if(Math.round((timeGiven - (end - Date.now())) / timeGiven * 10000) / 100 >= 100)
+    {
+        setTimer();
+    }
 }
 
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1);
